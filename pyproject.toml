@@ -7,10 +7,13 @@ requires-python = ">=3.11"
 dependencies = [
     "bertopic>=0.17.3",
     "browser-use>=0.5.5",
+    "faiss-cpu>=1.11.0.post1",
+    "fastmcp>=2.10.6",
     "gradio>=5.38.0",
     "jupyter>=1.1.1",
     "langchain>=0.3.26",
     "langchain-openai>=0.3.28",
+    "lxml>=6.0.0",
     "openai>=1.96.1",
     "pandas>=2.3.1",
     "python-dotenv>=1.1.1",
