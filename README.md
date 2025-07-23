@@ -1,8 +1,14 @@
-# openaiapi
+# ChatGPT-API für die Wissenschaft nutzen
 
-https://qiita.com/yaju/items/3bec88dbd544502e1343
+## Intro
+
+In diesem Workshop probieren wir verschiedene API-Schnittstellen von OpenAI für wissenschaftliche Zwecke aus.
+Was Oberbichler und Petz (2025) in ihrem Working Paper für Geschichtsforschung schreibt, entspricht auch den Geisteswissenschaften allgemein. Die Anwendungen der GenAI für Geisteswissenschaften können grob gesagt in zwei Umsetzungsebenen, AI als ein Tool oder AI als Methode, unterteilt werden. 
+Hier werden die Anwendungsbeispiele nach diesem Schema gezeigt.
+
+Oberbichler, Sarah, and Cindarella Petz. “Working Paper: Implementing Generative AI in the Historical Studies”. Zenodo, February 25, 2025. https://doi.org/10.5281/zenodo.14924737.
+
+## GenAI als Tool
 
 
-https://nikkie-ftnext.hatenablog.com/entry/model-context-protocol-quickstart-python-server-and-client
-
-https://newsletter.adaptiveengineer.com/p/build-a-custom-mcp-client-and-server
+## GenAI als (Forschnungs-)Methode
