@@ -48,4 +48,4 @@ demo = gr.Interface(
     outputs="text"
 )
 
-demo.launch()
+demo.launch(server_port=8501)
