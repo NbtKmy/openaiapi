@@ -8,6 +8,9 @@ FROM renku/renkulab-py:3.11-fd8a3a0 as builder
 # visit https://pypi.org/project/renku/#history.
 ARG RENKU_VERSION=2.9.4
 
+# Binding Gradio-Apps to Jupyter Server
+COPY jupyter_notebook_config.py ~/.jupyter/
+
 # Install renku from pypi or from github if a dev version
 RUN if [ -n "$RENKU_VERSION" ] ; then \
         source .renku/venv/bin/activate ; \
