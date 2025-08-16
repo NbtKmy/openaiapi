@@ -7,6 +7,7 @@ c.ServerProxy.servers = {
             "/home/jovyan/lab/openaiapi/src/kafka_chatbot.py",
             "--port", "8502"
         ],
+        "port": 8502, 
         "timeout": 60,
         "launcher_entry": {"title": "Kafka Chatbot"}
     }

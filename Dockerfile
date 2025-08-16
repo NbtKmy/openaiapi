@@ -29,8 +29,7 @@ FROM renku/renkulab-py:3.11-0.25.0
 
 # Binding Gradio-Apps to Jupyter Server
 RUN mkdir -p /home/jovyan/.jupyter
-COPY jupyter_server_config.py /home/jovyan/.jupyter/jupyter_server_config.py
-RUN chown -R jovyan:users /home/jovyan/.jupyter
+COPY --chown=jovyan:users jupyter_server_config.py /home/jovyan/.jupyter/jupyter_server_config.py
 
 USER ${NB_USER}
 
