@@ -84,8 +84,10 @@ iface = gr.ChatInterface(
 )
 
 if __name__ == "__main__":
+
+    root_path = os.getenv("GRADIO_ROOT_PATH", "/kafka_chatbot")
     iface.launch(
         server_port=8502,
         server_name="0.0.0.0",
-        root_path="/kafka_chatbot"
+        root_path=root_path,
         )
