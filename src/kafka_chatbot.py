@@ -84,4 +84,8 @@ iface = gr.ChatInterface(
 )
 
 if __name__ == "__main__":
-    iface.launch(server_port=8502)
+    iface.launch(
+        server_port=8502,
+        server_name="0.0.0.0",
+        root_path="/kafka_chatbot"
+        )
