@@ -10,10 +10,10 @@ c.ServerProxy.servers = {
         "port": 8502,
         "cwd": "/home/jovyan/lab/openaiapi",
         "timeout": 60,
-        "absolute_url": True,
+         "path_info": "/kafka_chatbot",
         "launcher_entry": {"title": "Kafka Chatbot"},
         "environment": {
-            "GRADIO_ROOT_PATH": "/kafka_chatbot"
+            "GRADIO_ROOT_PATH": ""
         }
     }
 }
