@@ -1,15 +1,12 @@
 ########################################################
 #        Renku install section - do not edit           #
 
-FROM renku/renkulab-py:3.11-fd8a3a0 as builder
+FROM renku/renkulab-py:3.11-0.25.0 as builder
 
 # RENKU_VERSION determines the version of the renku CLI
 # that will be used in this image. To find the latest version,
 # visit https://pypi.org/project/renku/#history.
 ARG RENKU_VERSION=2.9.4
-
-# Binding Gradio-Apps to Jupyter Server
-COPY jupyter_notebook_config.py ~/.jupyter/
 
 # Install renku from pypi or from github if a dev version
 RUN if [ -n "$RENKU_VERSION" ] ; then \
@@ -28,8 +25,12 @@ RUN if [ -n "$RENKU_VERSION" ] ; then \
 #             End Renku install section                #
 ########################################################
 
-FROM renku/renkulab-py:3.11-fd8a3a0
+FROM renku/renkulab-py:3.11-0.25.0
 
+# Binding Gradio-Apps to Jupyter Server
+RUN mkdir -p /home/jovyan/.jupyter
+COPY jupyter_server_config.py /home/jovyan/.jupyter/jupyter_server_config.py
+RUN chown -R jovyan:users /home/jovyan/.jupyter
 
 USER ${NB_USER}
 
