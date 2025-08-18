@@ -4,10 +4,14 @@ import os
 
 c.ServerProxy.servers = {
     "kafka_chatbot": {
+        #"command": [
+        #    "python",
+        #    "/home/jovyan/lab/openaiapi/src/kafka_chatbot_proxy.py",
+        #    "--port", "8502"
+        #],
         "command": [
-            "python",
-            "/home/jovyan/lab/openaiapi/src/kafka_chatbot_proxy.py",
-            "--port", "8502"
+            "bash","-lc",
+            "exec /opt/conda/bin/python /home/jovyan/lab/openaiapi/src/kafka_chatbot_proxy.py --port 8502 2>&1 | tee /home/jovyan/gradio_8502.log"
         ],
         "port": 8502,
         "cwd": "/home/jovyan/lab/openaiapi",
