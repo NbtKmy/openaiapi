@@ -14,9 +14,10 @@ c.ServerProxy.servers.update({
         # "port": は書かない（★動的に割り当てる）
         "cwd": "/home/jovyan/lab/openaiapi",
         "timeout": 60,
+        "absolute_url": True,
         "launcher_entry": {"title": "Kafka Chatbot"},
         "environment": {
-            "GRADIO_ROOT_PATH": "/kafka_chatbot",   # ★ Launcher URL と一致
+            "GRADIO_ROOT_PATH": "/proxy/8502",   # ★ Launcher URL と一致
             "OPENAI_API_KEY": os.environ.get("OPENAI_API_KEY", ""),
             "PYTHONUNBUFFERED": "1",
             "OMP_NUM_THREADS": os.environ.get("OMP_NUM_THREADS", "2"),
