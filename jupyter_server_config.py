@@ -9,7 +9,7 @@ c.ServerProxy.servers.update({
         "command": [
             "/opt/conda/bin/python",
             "/home/jovyan/lab/openaiapi/src/kafka_chatbot_proxy.py",
-            "--port", "{port}"         # ★ jupyter-server-proxy が空きポートに置換
+            "--port", "8502"         # ★ jupyter-server-proxy が空きポートに置換
         ],
         # "port": は書かない（★動的に割り当てる）
         "cwd": "/home/jovyan/lab/openaiapi",
