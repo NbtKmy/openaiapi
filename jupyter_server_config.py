@@ -1,7 +1,9 @@
 import os
 
-# Configuration file for jupyter-notebook.
 
+c.ServerProxy.servers = {}
+
+# Configuration file for jupyter-notebook.
 c.ServerProxy.servers = {
     "kafka_chatbot": {
         #"command": [
@@ -22,4 +24,8 @@ c.ServerProxy.servers = {
             "OPENAI_API_KEY": os.environ.get("OPENAI_API_KEY", "")
         }
     }
+}
+
+c.ServerApp.jpserver_extensions = {
+    "jupyter_server_proxy": True
 }
