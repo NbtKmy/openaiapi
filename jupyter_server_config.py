@@ -6,7 +6,7 @@ c.ServerProxy.servers = {
     "kafka_chatbot": {
         "command": [
             "python",
-            "/home/jovyan/lab/openaiapi/src/kafka_chatbot.py",
+            "/home/jovyan/lab/openaiapi/src/kafka_chatbot_proxy.py",
             "--port", "8502"
         ],
         "port": 8502,

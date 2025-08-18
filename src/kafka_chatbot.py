@@ -9,7 +9,6 @@ from openai import OpenAI
 
 
 dotenv.load_dotenv()
-assert os.getenv("OPENAI_API_KEY"), "Missing OPENAI_API_KEY"
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 script_path = os.path.join(os.path.dirname(__file__), "kafka_brief_an_den_vater.py")
@@ -71,18 +70,9 @@ async def run_mcp_rag(query, history):
         #sources = "\n".join([f"Seite: {c['tag']} (score: {c['score']:.3f})" for c in contexts])
         return full_response
 
-async def run_mcp_rag_2(query, history):
-    # ダミーcontexts
-    contexts = [{"tag": "test", "text": "Dies ist ein Testkontext."}]
-    
-    # OpenAIに投げる
-    answer = generate_answer(query, contexts)
-    
-    # 返す
-    return f"{answer}\n\n(Dummy-Kontext benutzt)"
 
 iface = gr.ChatInterface(
-    fn=run_mcp_rag_2,
+    fn=run_mcp_rag,
     title="Kafka Brief an Vater MCP Chat",
     chatbot=gr.Chatbot(label="KafkaBot", type="messages"),
     type="messages",
@@ -102,6 +92,4 @@ if __name__ == "__main__":
         server_port=8502,
         server_name="0.0.0.0",
         root_path=root_path,
-        debug=True, 
-        show_error=True
         )
