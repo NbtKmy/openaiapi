@@ -5,7 +5,7 @@ c.ServerProxy.servers = {}
 
 # named ルート "kafka_chatbot" を定義（★動的ポート）
 c.ServerProxy.servers.update({
-    "kafka_chatbot": {
+    "kafka_chatbot_for_renku": {
         "command": [
             "/opt/conda/bin/python",
             "/home/jovyan/lab/openaiapi/src/kafka_chatbot_proxy.py",
@@ -15,7 +15,7 @@ c.ServerProxy.servers.update({
         "cwd": "/home/jovyan/lab/openaiapi",
         "timeout": 60,
         "absolute_url": True,
-        "launcher_entry": {"title": "Kafka Chatbot"},
+        "launcher_entry": {"title": "Kafka Chatbot for Renku"},
         "environment": {
             "GRADIO_ROOT_PATH": "/proxy/8502",   # ★ Launcher URL と一致
             "OPENAI_API_KEY": os.environ.get("OPENAI_API_KEY", ""),
