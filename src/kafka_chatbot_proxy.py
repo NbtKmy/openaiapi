@@ -82,9 +82,9 @@ iface = gr.ChatInterface(
 )
 
 if __name__ == "__main__":
-    root_path = os.getenv("GRADIO_ROOT_PATH", "/proxy/8888")  # Renku運用をデフォに
+    root_path = os.getenv("GRADIO_ROOT_PATH", "/proxy/8502")  # Renku運用をデフォに
     iface.launch(
-        server_port=8888,
+        server_port=8502,
         server_name="0.0.0.0",
         root_path=root_path,
         debug=True,
