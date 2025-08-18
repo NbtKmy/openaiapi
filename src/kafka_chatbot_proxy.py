@@ -47,24 +47,27 @@ def format_sources_html(contexts):
     return "<h4>Quellen:</h4>" + "\n".join(parts)
 
 async def run_mcp_rag(query, history):
-    # ★ ここで毎回Transportを“安全構成”で作る（起動直後クラッシュや環境差を回避）
-    transport = PythonStdioTransport(
-        script_path=MCP_SCRIPT,      # 絶対パス
-        cwd=MCP_CWD,                 # 作業ディレクトリ固定
-        env={
-            "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY", ""),
-            "PYTHONUNBUFFERED": "1",
-        },
-        startup_timeout=20.0,        # FAISSなど重い初期化に備える
-    )
-    async with Client(transport) as mcp_client:
-        result = await mcp_client.call_tool("search", {"query": query, "k": 3})
-        contexts = json.loads(result.content[0].text)
+    try:
+        transport = PythonStdioTransport(
+            script_path=MCP_SCRIPT,
+            cwd=MCP_CWD,
+            env={
+                "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY",""),
+                "PYTHONUNBUFFERED": "1",
+            },
+            startup_timeout=30.0,   # 起動が重い場合の保険
+        )
+        async with Client(transport) as client:
+            result = await client.call_tool("search", {"query": query, "k": 3})
+            contexts = json.loads(result.content[0].text)
 
-    loop = asyncio.get_event_loop()
-    answer = await loop.run_in_executor(None, generate_answer, query, contexts)
-    return f"{answer}\n\n{format_sources_html(contexts)}"
+        loop = asyncio.get_event_loop()
+        answer = await loop.run_in_executor(None, generate_answer, query, contexts)
+        return f"{answer}\n\n{format_sources_html(contexts)}"
 
+    except Exception as e:
+        return f"❌ エラー: {e}\n\n```\n{traceback.format_exc()}\n```"
+    
 iface = gr.ChatInterface(
     fn=run_mcp_rag,
     title="Kafka Brief an Vater MCP Chat (proxy)",
