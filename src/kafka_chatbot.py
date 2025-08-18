@@ -71,9 +71,18 @@ async def run_mcp_rag(query, history):
         #sources = "\n".join([f"Seite: {c['tag']} (score: {c['score']:.3f})" for c in contexts])
         return full_response
 
+async def run_mcp_rag_2(query, history):
+    # ダミーcontexts
+    contexts = [{"tag": "test", "text": "Dies ist ein Testkontext."}]
+    
+    # OpenAIに投げる
+    answer = generate_answer(query, contexts)
+    
+    # 返す
+    return f"{answer}\n\n(Dummy-Kontext benutzt)"
 
 iface = gr.ChatInterface(
-    fn=run_mcp_rag,
+    fn=run_mcp_rag_2,
     title="Kafka Brief an Vater MCP Chat",
     chatbot=gr.Chatbot(label="KafkaBot", type="messages"),
     type="messages",
