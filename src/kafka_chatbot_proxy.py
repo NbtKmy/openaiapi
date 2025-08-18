@@ -1,5 +1,6 @@
 import os, json, asyncio, gradio as gr
 from openai import OpenAI
+import traceback
 from fastmcp import Client
 from fastmcp.client.transports import PythonStdioTransport
 
@@ -55,7 +56,6 @@ async def run_mcp_rag(query, history):
                 "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY",""),
                 "PYTHONUNBUFFERED": "1",
             },
-            startup_timeout=60.0,   # 起動が重い場合の保険
         )
         async with Client(transport) as client:
             result = await client.call_tool("search", {"query": query, "k": 3})
@@ -82,7 +82,8 @@ iface = gr.ChatInterface(
 )
 
 if __name__ == "__main__":
-    root_path = os.getenv("GRADIO_ROOT_PATH", "/proxy/8502")  # Renku運用をデフォに
+    root_path = os.getenv("GRADIO_ROOT_PATH", "/kafka_chatbot")
+    iface = iface.queue(concurrency_count=1)
     iface.launch(
         server_port=8502,
         server_name="0.0.0.0",
