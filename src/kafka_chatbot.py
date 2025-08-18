@@ -7,7 +7,9 @@ import os
 import json
 from openai import OpenAI
 
+
 dotenv.load_dotenv()
+assert os.getenv("OPENAI_API_KEY"), "Missing OPENAI_API_KEY"
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 script_path = os.path.join(os.path.dirname(__file__), "kafka_brief_an_den_vater.py")
@@ -85,9 +87,12 @@ iface = gr.ChatInterface(
 
 if __name__ == "__main__":
 
+
     root_path = os.getenv("GRADIO_ROOT_PATH", "")
     iface.launch(
         server_port=8502,
         server_name="0.0.0.0",
         root_path=root_path,
+        debug=True, 
+        show_error=True
         )
