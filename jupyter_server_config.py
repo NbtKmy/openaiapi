@@ -1,3 +1,5 @@
+import os
+
 # Configuration file for jupyter-notebook.
 
 c.ServerProxy.servers = {
@@ -12,7 +14,8 @@ c.ServerProxy.servers = {
         "timeout": 60,
         "launcher_entry": {"title": "Kafka Chatbot"},
         "environment": {
-            "GRADIO_ROOT_PATH": "/proxy/8502"
+            "GRADIO_ROOT_PATH": "/proxy/8502",
+            "OPENAI_API_KEY": os.environ.get("OPENAI_API_KEY", "")
         }
     }
 }
