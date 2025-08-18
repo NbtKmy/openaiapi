@@ -55,7 +55,7 @@ async def run_mcp_rag(query, history):
                 "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY",""),
                 "PYTHONUNBUFFERED": "1",
             },
-            startup_timeout=30.0,   # 起動が重い場合の保険
+            startup_timeout=60.0,   # 起動が重い場合の保険
         )
         async with Client(transport) as client:
             result = await client.call_tool("search", {"query": query, "k": 3})
