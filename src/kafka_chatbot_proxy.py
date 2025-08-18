@@ -1,4 +1,4 @@
-import argparse, os, json, asyncio, gradio as gr
+import os, json, asyncio, gradio as gr
 from openai import OpenAI
 import traceback
 from fastmcp import Client
@@ -83,13 +83,9 @@ iface = gr.ChatInterface(
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--port", type=int, default=0)
-    args = parser.parse_args()
-
     root_path = os.getenv("GRADIO_ROOT_PATH", "/kafka_chatbot")
     iface.launch(
-        server_port=args.port if args.port else None,  # ★ {port} で渡された値を使う
+        server_port=8503,
         server_name="0.0.0.0",
         root_path=root_path,
         debug=True,
