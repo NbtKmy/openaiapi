@@ -13,11 +13,11 @@ c.ServerProxy.servers.update({
         ],
         "cwd": "/home/jovyan/lab/openaiapi",
         "timeout": 60,
-        "absolute_url": True,
-        "path_info": "/proxy/8502",
+        #"absolute_url": True,
+        #"path_info": "/proxy/8502",
         "launcher_entry": {"title": "Kafka Chatbot for Renku"},
         "environment": {
-            "GRADIO_ROOT_PATH": "/proxy/8502",
+            "GRADIO_ROOT_PATH": "/kafka_chatbot_for_renku",
             "OPENAI_API_KEY": os.environ.get("OPENAI_API_KEY", ""),
             "PYTHONUNBUFFERED": "1",
         }
