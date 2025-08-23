@@ -1,4 +1,4 @@
-import os, json, asyncio, gradio as gr
+import argparse, os, json, asyncio, gradio as gr
 from openai import OpenAI
 import traceback
 from fastmcp import Client
@@ -83,11 +83,15 @@ iface = gr.ChatInterface(
 
 if __name__ == "__main__":
 
-    base_path = os.getenv("RENKU_BASE_URL_PATH", "/")
+    p = argparse.ArgumentParser()
+    p.add_argument("--port", type=int, default=8502)
+    p.add_argument("--root_path", type=str, default="/")
+    args = p.parse_args()
+
     iface.launch(
-        server_port=8502,
+        server_port=args.port,
         server_name="0.0.0.0",
-        root_path=base_path,
+        root_path=args.root_path,
         debug=True,
         show_error=True,
     )
