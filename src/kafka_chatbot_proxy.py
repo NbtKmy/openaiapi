@@ -83,11 +83,11 @@ iface = gr.ChatInterface(
 
 if __name__ == "__main__":
 
-    root_path = os.getenv("GRADIO_ROOT_PATH", "/kafka_chatbot_for_renku")
+    base_path = os.getenv("RENKU_BASE_URL_PATH", "/")
     iface.launch(
         server_port=8502,
         server_name="0.0.0.0",
-        root_path=root_path,
+        root_path=base_path,
         debug=True,
         show_error=True,
     )

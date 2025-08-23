@@ -17,7 +17,7 @@ c.ServerProxy.servers.update({
         #"path_info": "/proxy/8502",
         "launcher_entry": {"title": "Kafka Chatbot for Renku"},
         "environment": {
-            "GRADIO_ROOT_PATH": "/kafka_chatbot_for_renku",
+            #"GRADIO_ROOT_PATH": "/kafka_chatbot_for_renku",
             "OPENAI_API_KEY": os.environ.get("OPENAI_API_KEY", ""),
             "PYTHONUNBUFFERED": "1",
         }
