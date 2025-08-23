@@ -33,6 +33,7 @@ FROM renku/renkulab-py:3.11-0.25.0
 
 USER ${NB_USER}
 
+
 # install the python dependencies
 COPY requirements.txt environment.yml /tmp/
 RUN mamba env update -q -f /tmp/environment.yml && \
