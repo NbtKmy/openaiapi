@@ -88,6 +88,8 @@ if __name__ == "__main__":
     p.add_argument("--root_path", type=str, default="/")
     args = p.parse_args()
 
+    print(f"Gradio started - Open this URL: https://renkulab.io{args.root_path}/proxy/8502/")
+
     iface.launch(
         server_port=args.port,
         server_name="0.0.0.0",
