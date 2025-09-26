@@ -51,7 +51,7 @@ __Verwendete Modelle:__
 
 __Code:__
 - ./src/kafka_brief_an_den_vater.py (MCP-Server)
-- ./src/ask_kafka_client.py (MCP-Client)
+- ./src/kafka_chatbot_proxy.py (Chatbot mit MCP-Server)
 - ./src/create_vectorstore.py (Erstellung des Vector-Stores)
 
 [MCP (Model Context Protocol)](https://docs.anthropic.com/en/docs/mcp) ist ein Protokoll, das die Kommunikation zwischen einem großen Sprachmodell (LLM) und externen Tools standardisiert. Es dient als Schnittstelle, über die ein LLM als Agent auf Werkzeuge, Funktionen oder Datenquellen zugreifen kann. MCP wurde von dem KI-Unternehmen Anthropic entwickelt und gewinnt zunehmend an Bedeutung als mögliche Standardlösung für die Orchestrierung von KI-Agenten.
@@ -63,9 +63,21 @@ Der MCP-Server hier besteht aus einem Vector-Store. Als Datenquelle ist Kafkas [
 
 Die Quelle sind nach Seitentrennung in einen Vector-Store untergebracht. Der MCP-Server (/src/kafka_brief_an_den_vater.py) bietet den Zugriff auf den Vector-Store.
 
-Der Client ("src/ask_kafka_client.py") ist ein Chatbot, der bei Fragen auf den Vector-Store zurückgreift.
+Der Client ("src/kafka_chatbot_proxy.py") ist ein Chatbot, der bei Fragen auf den Vector-Store zurückgreift.
 
 Der Vorteil von einem MCP-Server ist, dass der Server auch von den anderen MCP-Client verwendet werden kann. In diesem Beispiel betrachten wir, wie der MCP-Server in die Coding-Software "Cursor" eingebunden werden kann.
+
+In der RENKU-Umgebung kann man den Chatbot so starten:
+
+```python
+
+python /home/jovyan/lab/openaiapi/src/kafka_chatbot_proxy.py \
+  --port 8502 \
+  --root_path "${RENKU_BASE_URL_PATH%/}"
+
+  ````
+
+Um die Gradio-Applikation zu stoppen, kann man "Control + C" im Terminal drücken.
 
 
 
