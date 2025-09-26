@@ -236,3 +236,4 @@ venv
 node_modules
 .sass-cache
 
+data/ramrod_ausschnitt.*
