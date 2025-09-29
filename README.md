@@ -34,22 +34,38 @@ Wir testen hier 3 Anwendungsbeispiele, bei denen GenAI als Hilfstools eingesetzt
 ### OCR
 
 __Verwendete Modelle:__
+
 - GPT-4.1
 
+__Code:__
 
+- ./notes/ocr_1.ipynb
+- ./notes/ocr_2.ipynb
+- ./notes/ocr_3.ipynb
 
 
 
 ### Audio-Transkription
 
+__Verwendete Modelle:__
+
+- GPT-4o-transcribe
+
+__Code:__
+
+- ./notes/simple_transcription.ipynb
+- ./notes/transcribe_ramrod.ipynb
+
 
 ### MCP (Model Context Protocol)
 
 __Verwendete Modelle:__
+
 - GPT-4o-mini
 - text-embedding-ada-002
 
 __Code:__
+
 - ./src/kafka_brief_an_den_vater.py (MCP-Server)
 - ./src/kafka_chatbot_proxy.py (Chatbot mit MCP-Server)
 - ./src/create_vectorstore.py (Erstellung des Vector-Stores)
@@ -97,4 +113,38 @@ Weitere Beispiele:
 
 
 ## GenAI als (Forschnungs-)Methode
+
+Man kann GenAI in eine Analyse integrieren. Hier ein Paar wichtige Aspekte dabei: 
+
+- Datensicherheit
+> By default, business data from ChatGPT Business, ChatGPT Enterprise, ChatGPT Edu, and the API Platform (after March 1, 2023) isn't used for training our models, unless you have explicitly opted in to share your data with us to improve the services. 
+
+([link](https://openai.com/enterprise-privacy/), gesichtet am 30. Sept. 2025)
+
+- Datenkontrolle durch OpenAI
+> By default, abuse monitoring logs are generated for all API feature usage and retained for up to 30 days, unless we are legally required to retain the logs for longer.
+
+ ([link](https://platform.openai.com/docs/guides/your-data), gesichtet am 30. Sept. 2025)
+
+- Reproduzierbarkeit
+> Chat Completions are non-deterministic by default (which means model outputs may differ from request to request). That being said, we offer some control towards deterministic outputs by giving you access to the seed parameter and the system_fingerprint response field.
+
+([link](https://platform.openai.com/docs/advanced-usage#reproducible-outputs), gesichtet am 30. Sept. 2025)
+
+## YouTube-Kommentare analysieren
+
+__Verwendete Modelle__
+- text-embedding-3-small
+- gpt-4o-mini
+
+
+__Code:__
+
+- ./notes/analysing_youtube_comments_1.ipynb
+- ./notes/analysing_youtube_comments_3.ipynb
+
+__Beschreibung:__
+
+In diesem Beispiel nehmen wir die Kommentare von [diesem YouTube-Video](https://youtu.be/6dWYxKW5rY4?feature=shared) durch die API-Schnittstelle und analysieren mit text-embedding und gpt-4o-mini-Modelle. Die Analyse wird maschinell durchgefürht. In der Analyse sind die beiden Modelle integriert und unentbehrlich in diesem Prozess.
+
 

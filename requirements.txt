@@ -22,3 +22,6 @@ huggingface-hub>=0.33.4
 soundfile>=0.13.1
 torch>=2.7.1
 torchaudio>=2.7.1
+google-api-python-client>=2.176.0
+numpy>=2.2.6
+hdbscan>=0.8.40

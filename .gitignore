@@ -237,3 +237,5 @@ node_modules
 .sass-cache
 
 data/ramrod_ausschnitt.*
+notes/outputs/
+notes/outputs/*
