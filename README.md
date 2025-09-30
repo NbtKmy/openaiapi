@@ -141,6 +141,7 @@ __Verwendete Modelle__
 __Code:__
 
 - ./notes/analysing_youtube_comments_1.ipynb
+- ./notes/analysing_youtube_comments_2.ipynb
 - ./notes/analysing_youtube_comments_3.ipynb
 
 __Beschreibung:__
