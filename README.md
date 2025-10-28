@@ -6,7 +6,19 @@ In diesem Workshop probieren wir verschiedene API-Schnittstellen von OpenAI für
 Was Oberbichler und Petz (2025) in ihrem Working Paper für Geschichtsforschung schreibt, entspricht auch den Geisteswissenschaften allgemein. Die Anwendungen der GenAI für Geisteswissenschaften können grob gesagt in zwei Umsetzungsebenen, AI als ein Tool oder AI als Methode, unterteilt werden. 
 Hier werden die Anwendungsbeispiele nach diesem Schema gezeigt.
 
+## Ziel des Workshops
+
+1. Den konkreten Umgang mit APIs kennenlernen
+2. Wissenschaftliche Integrität bzw. einschlägige Problematiken wahrnehmen
+
+**Literatur**
+
 Oberbichler, Sarah, and Cindarella Petz. “Working Paper: Implementing Generative AI in the Historical Studies”. Zenodo, February 25, 2025. https://doi.org/10.5281/zenodo.14924737.
+
+Hindermann, Maximilian. „FAIR Use of GPT-Generated Data in SSH Research: A Practical Guide“. Lunch & Learn, 21. August 2024. https://doi.org/10.5281/zenodo.13939596.
+
+Hindermann, Maximilian, und Sorin Marti. „RISE Crash Course: ‚AI Benchmarking‘“. 19. März 2025. https://doi.org/10.5281/zenodo.15062831.
+
 
 
 
