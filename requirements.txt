@@ -26,3 +26,4 @@ google-api-python-client>=2.176.0
 numpy>=2.2.6
 hdbscan>=0.8.40
 atproto>=0.0.63
+requests>=2.32.4
